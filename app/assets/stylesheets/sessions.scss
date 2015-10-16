@@ -1,6 +1,8 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+$button-green: #2CC162;
+$button-green-hover: #28AE58;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -29,6 +31,22 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+}
+
+.about-button {
+  background-color: $button-green;
+  border-color: $button-green;
+  margin-right: 5px;
+  width: 45%;
+  &:hover {
+    background-color: $button-green-hover;
+    border-color: $button-green-hover;
+  }
+}
+
+.signup-button {
+  margin-left: 5px;
+  width: 45%;
 }
 
 .checkbox {
