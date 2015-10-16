@@ -16,8 +16,9 @@
         <button type="button" class="btn btn-primary">Login</button>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">About</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Sign Up</button>
+        <%= link_to "About", about_path, class: "btn btn-lrg btn-primary pull-left" %>
+        <%= link_to "Sign Up", signup_path, class: "btn btn-lrg btn-primary pull-right" %>
+        
       </div>
     </div>
   </div>
