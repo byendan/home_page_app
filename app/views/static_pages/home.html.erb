@@ -1,15 +1,20 @@
-
+<%= stylesheet_link_tag "def_home_box" %>
 <% if logged_in? %>
 <%= provide(:title, current_user.name + "'s links")%>
 	<% if current_user.tabs.any? %>
 		<div class="container">
-			<%= current_user.tabs.each do |tab| %>
-				<%= render partial: 'layouts/tab', collection: @tabs %>
-			<% end %>
+			<%= render current_user.tabs  %>
 		</div>
 	<% end %>
 
-<%= render 'layouts/tab_form' %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<%= render 'layouts/tab_form' %>
+		</div>
+	</div>
+</div>
+
 
 <% else %>
 
