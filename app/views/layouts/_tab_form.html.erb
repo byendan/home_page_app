@@ -1,0 +1,12 @@
+<%= form_for(@tab) do |f| %>
+	
+	
+	<%= f.label :name %>
+	<%= f.text_field :name, class: 'form-control' %>
+
+	<%= f.label :address %>
+	<%= f.text_field :address, class: 'form-control' %>
+	
+	<%= f.submit "Post", class: "btn btn-primary" %>
+	
+<% end %> 

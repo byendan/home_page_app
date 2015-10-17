@@ -1,4 +1,19 @@
 
+<% if logged_in? %>
+<%= provide(:title, current_user.name + "'s links")%>
+	<% if current_user.tabs.any? %>
+		<div class="container">
+			<%= current_user.tabs.each do |tab| %>
+				<%= render partial: 'layouts/tab', collection: @tabs %>
+			<% end %>
+		</div>
+	<% end %>
+
+<%= render 'layouts/tab_form' %>
+
+<% else %>
+
+
 <script type="text/javascript">
     $(window).load(function(){
         $('#myModal').modal('show');
@@ -12,3 +27,4 @@
 	<%= render 'layouts/loginmod'%>
 </div>
 
+<% end %>
