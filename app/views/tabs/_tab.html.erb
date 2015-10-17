@@ -6,6 +6,7 @@
 				<div class="box-pic">
 					<%= link_to "delete", tab, method: :delete,
 											   data: {confirm: "You sure?" } %>
+					<%= image_tag tab.picture.url if tab.picture? %>
 				</div>
 				<div class="box-title center">
 					<%= tab.name %>

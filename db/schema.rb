@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017012032) do
+ActiveRecord::Schema.define(version: 20151017182417) do
 
   create_table "tabs", force: :cascade do |t|
     t.text     "address"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20151017012032) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "picture"
   end
 
   add_index "tabs", ["user_id", "created_at"], name: "index_tabs_on_user_id_and_created_at"
