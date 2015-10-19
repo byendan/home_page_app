@@ -5,7 +5,6 @@ class TabsController < ApplicationController
   def create
     @tab = current_user.tabs.build(tab_params)
     if @tab.save
-      flash[:success] = "Tab created!"
       redirect_to root_url
     else
       @feed_items = []
@@ -15,7 +14,6 @@ class TabsController < ApplicationController
   
   def destroy
     @tab.destroy
-    flash[:success] = "Tab deleted"
     redirect_to root_url
   end
   

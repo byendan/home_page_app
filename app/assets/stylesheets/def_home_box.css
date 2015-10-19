@@ -39,6 +39,38 @@
 
 }
   
+.options {
+	padding: 5px;
+	height: 50px;
+	width: 100%;
+	background-color: #EAE7EE;
+}
+
+.ops-area {
+	bottom: 10px;
+	padding: 5px;
+	
+}
+
+.ops-btns {
+	display: inline-block;
+	position: relative;
+	bottom: 5px;
+	margin: 5px;
+	width: 34px;
+	height: 34px;
+	padding: 0;
+	background-color: #988cbd;
+	border: solid 1px #000000;
+	border-radius: 5px;
+}
+
+
+
+
+.center {
+	text-align: center;
+}
 
 @media only screen and (max-width : 480px) {
       /* Smartphone view: 1 tile */
