@@ -52,16 +52,16 @@
 	
 }
 
-.ops-btns {
+
+
+button {
 	display: inline-block;
 	position: relative;
 	bottom: 5px;
-	margin: 5px;
-	width: 34px;
-	height: 34px;
-	padding: 0;
+}
+
+#add, #delete {
 	background-color: #988cbd;
-	border: solid 1px #000000;
 	border-radius: 5px;
 }
 
