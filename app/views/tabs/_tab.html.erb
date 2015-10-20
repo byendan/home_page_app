@@ -1,11 +1,11 @@
-<%= stylesheet_link_tag "def_home_box" %>
+
 <% if tab.name != nil %>
-	<a href="https://<%= tab.address %>" target="_blank">
-		<div class="box">
+
+	<a style="display:block" href="https://<%= tab.address %>" target="_blank">
+		<div class="box" >
 			<div class="box-inner">
-				<div class="box-pic">
-					<%= link_to "delete", tab, method: :delete,
-											   data: {confirm: "You sure?" } %>
+				<div class="box-pic center">
+					
 					<%= image_tag tab.picture.url if tab.picture? %>
 				</div>
 				<div class="box-title center">
@@ -14,4 +14,17 @@
 			</div>
 		</div>
 	</a>
+
 <% end %>
+
+
+	<% if false %>
+  
+  <%= link_to "delete", tab, method: :delete,
+											   data: {confirm: "You sure?" } %>
+	
+  
+<% end %>
+	
+	
+

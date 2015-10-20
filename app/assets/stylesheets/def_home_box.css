@@ -1,6 +1,9 @@
-
+.delete-button {
+	display: inline-block;
+	height: 220px;
+}
 .box {
-        
+      display: block;
       float: left;
       position: relative;
       width: 19%;
@@ -12,7 +15,6 @@
       overflow: hidden;
 
       border: 2px solid black;
-      
  
     }
     
@@ -21,9 +23,8 @@
 }
 
 .box-inner .box-pic {
-  width: 100%;
-  height: 85%;
-  background-color: #85CF9D;
+	position: relative;
+
 }
 
 .box-inner .box-title {
@@ -57,7 +58,8 @@
 button {
 	display: inline-block;
 	position: relative;
-	bottom: 5px;
+	bottom: 2px;
+	border: solid 1px #C1BAD7;
 }
 
 #add, #delete {
@@ -78,6 +80,11 @@ button {
         width: 95%;
         height: 200px;
       }
+      
+      .delete-button {
+		height: 220px;
+	}
+      
     }
     @media only screen and (max-width : 650px) and (min-width : 481px) {
       /* Tablet view: 2 tiles */
@@ -85,6 +92,11 @@ button {
         width:45%;
         height: 150px;
       }
+      
+      .delete-button {
+      	height: 170px;
+      }
+      
     }
     @media only screen and (max-width : 1050px) and (min-width : 651px) {
       /* Small desktop / ipad view: 3 tiles */
@@ -92,6 +104,11 @@ button {
         width: 29%;
         height: 175px;
       }
+      
+      .delete-button {
+      	height: 195px;
+      }
+      
     }
     @media only screen and (max-width : 1290px) and (min-width : 1051px) {
       /* Medium desktop: 4 tiles */
@@ -99,4 +116,9 @@ button {
         width: 23%;
         height: 200px;
       }
+      
+      .delete-button {
+      	height: 220px;
+      }
+      
     }
