@@ -1,12 +1,21 @@
 <%= stylesheet_link_tag "def_home_box" %>
 <div class="options">
 	<div class="ops-area center">
-		<div class="ops-btns" id="one" style="min-width:30px">
-			<img class="center" src=<%= asset_path 'addButton' %> style="width:30px;height:30px;">
+		<div class="ops-btns" id="add" style="min-width:30px">
+			<button type="button" data-toggle="modal" data-target="#newTabModal">
+				<img class="center" src=<%= asset_path 'addButton' %> style="width:30px;height:30px;">
+			</button>
 		</div>
-		<div class="ops-btns" id="thre">
+		<div class="ops-btns" id="delete">
 			<img class="center" src=<%= asset_path 'deleteButton' %> style="width:30px;height:30px;">
 		</div>
 	</div>
 	
+	
+	<%= render 'layouts/newTabModal' %>
+
+	
 </div>
+
+
+

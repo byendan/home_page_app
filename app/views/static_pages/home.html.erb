@@ -2,6 +2,7 @@
 <% if logged_in? %>
 <%= provide(:title, current_user.name + "'s links")%>
 	<%= render 'layouts/options_bar'%>
+	
 	<% if current_user.tabs.any? %>
 		<div class="container">
 			<%= render current_user.tabs  %>
@@ -11,7 +12,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-4">
-			<%= render 'layouts/tab_form' %>
+		 <!--	 <%= render 'layouts/tab_form' %>  -->
 		</div>
 	</div>
 </div>
