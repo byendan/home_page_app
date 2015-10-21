@@ -17,6 +17,13 @@ class TabsController < ApplicationController
     redirect_to edit_user_path current_user
   end
   
+  def update
+    @tab = current_user.tabs.find_by(id: params[:id])
+    if @tab.update_attributes(tab_params)
+      redirect_to edit_user_path current_user
+    end
+  end
+  
   
   
   private

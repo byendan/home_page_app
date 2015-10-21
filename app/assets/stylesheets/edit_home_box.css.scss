@@ -73,10 +73,28 @@ button {
   height: 30px;
   background-image: url("delButton.png");
   padding: 20px;
+  margin-top: 30px;
+}
+
+.edButton {
+  width: 100px;
+  height: 30px;
+  background-image: url("edButton.png");
+  padding: 20px;
+  margin-top: 30px;
 }
 
 .btn-danger img {
   padding: 10px;
+}
+
+.edit-buttons-section {
+  height: 100%;
+  border-right: solid 1px grey;
+}
+
+.tab-info {
+  margin-top: 45px;
 }
 
 #doneEdit {
