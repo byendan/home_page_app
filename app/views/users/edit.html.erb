@@ -2,30 +2,39 @@
 <%= provide(:title, "Edit links")%>
 <%= render 'layouts/edit_options_bar'%>
 <% if current_user.tabs.any? %>
-		<div class="container">
-			<% @tabs.each do |aTab| %>
-			<div class="row edit-row">
-				<div class="col-md-4">
-						<%= render aTab  %>
-				</div>
-				<div class="col-md-6 edit-tab">
-					<div class="col-md-3 edit-buttons-section">
-						
-						<%= link_to "", aTab, method: :delete, class: "btn btn-danger",
-											   data: {confirm: "You sure?" } %>
-						<br>
-						<button class="btn btn-default edButton"></button>
-						
-					</div>
-						
-					<div class="col-md-7 tab-info">
-						<p>Name: <%= aTab.name %></p>
-						<p>Address: <%= aTab.address %></p>
-						<p></p>
-					</div>
-					
-				</div>
-			</div>
-			<% end %>
+<div class="container">
+	<% @tabs.each do |aTab| %>
+	<div class="row edit-row">
+		<div class="col-md-4">
+			<%= render aTab  %>
 		</div>
+		<div class="col-md-6 edit-tab">
+			<div class="col-md-3 edit-buttons-section">
+
+				<%= link_to "", aTab, method: :delete, class: "btn btn-danger",
+				data: {confirm: "You sure?" } %>
+				<br>
+				<%= link_to "", edit_tab_path(aTab),  class: "btn btn-default edButton" %>
+				
+				
+				
+
+			</div>
+
+			<div class="col-md-7 tab-info">
+				<p>
+					Name: <%= aTab.name %>
+				</p>
+				<p>
+					Address: <%= aTab.address %>
+				</p>
+			</div>
+
+		</div>
+	</div>
+
+	
+
+	<% end %>
+</div>
 <% end %>

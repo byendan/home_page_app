@@ -12,9 +12,14 @@ class TabsController < ApplicationController
     end
   end
   
+  
   def destroy
     @tab.destroy
     redirect_to edit_user_path current_user
+  end
+  
+  def edit
+    @tab = current_user.tabs.find_by(id: params[:id])
   end
   
   def update

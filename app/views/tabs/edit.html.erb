@@ -1,0 +1,34 @@
+<%= stylesheet_link_tag "def_home_box" %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 edit-form">
+
+			<%= form_for(@tab, html: {multipart: true }) do |f| %>
+
+			<%= f.label :name %>
+			<%= f.text_field :name, class: 'form-control' %>
+
+			<%= f.label :address %>
+			<%= f.text_field :address, class: 'form-control' %>
+
+			<span class="picture"> <%= f.label "Upload"%>
+				<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+				<%= f.label "or image Link" %>
+				<%= f.text_field :remote_picture_url, class: 'form-control' %> </span>
+
+			<%= f.submit "Save Changes", class: "btn btn-primary" %>
+
+			<% end %>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$('#micropost_picture').bind('change', function() {
+		var size_in_megabytes = this.files[0].size / 1024 / 1024;
+		if (size_in_megabytes > 5) {
+			alert('Maximum file size is 5MB. Please choose a smaller file.');
+		}
+	}); 
+</script>
