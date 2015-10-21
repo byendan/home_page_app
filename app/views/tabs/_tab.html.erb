@@ -2,7 +2,7 @@
 <% if tab.name != nil %>
 
 
-	<a style="display:block" href="https://<%= tab.address %>" target="_blank">
+	<a style="display:block" href="<%= url_fix tab.address %>" target="_blank">
 		<div class="box" >
 			<div class="box-inner">
 				<div class="box-pic center">
@@ -17,15 +17,6 @@
 	</a>
 
 <% end %>
-
-
-	<% if false %>
-  
-  <%= link_to "delete", tab, method: :delete,
-											   data: {confirm: "You sure?" } %>
-	
-  
-	<% end %>
 	
 	
 
