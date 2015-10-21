@@ -8,7 +8,11 @@
 	<%= f.text_field :address, class: 'form-control' %>
 	
 	<span class="picture">
+		<%= f.label "Upload"%>
 		<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+		<%= f.label "or image Link" %>
+		<%= f.text_field :remote_picture_url, class: 'form-control' %>
+		
 	</span>
 	
 	<%= f.submit "Post", class: "btn btn-primary" %>

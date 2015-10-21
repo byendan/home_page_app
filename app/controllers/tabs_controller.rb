@@ -22,7 +22,7 @@ class TabsController < ApplicationController
   private
   
     def tab_params
-      params.require(:tab).permit(:name, :address, :picture)
+      params.require(:tab).permit(:name, :address, :picture, :remote_picture_url)
     end
     
     def correct_user
