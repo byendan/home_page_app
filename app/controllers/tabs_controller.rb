@@ -14,7 +14,7 @@ class TabsController < ApplicationController
   
   def destroy
     @tab.destroy
-    redirect_to root_url
+    redirect_to edit_user_path current_user
   end
   
   

@@ -4,12 +4,14 @@
 <% if current_user.tabs.any? %>
 		<div class="container">
 			<% @tabs.each do |aTab| %>
-			<div class="row">
+			<div class="row edit-row">
 				<div class="col-md-4">
 						<%= render aTab  %>
 				</div>
 				<div class="col-md-6 edit-tab">
-					Edit stuff goes here
+						<%= link_to "", aTab, method: :delete, class: "btn btn-danger",
+											   data: {confirm: "You sure?" } %>
+					
 				</div>
 			</div>
 			<% end %>

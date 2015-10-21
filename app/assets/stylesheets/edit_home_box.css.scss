@@ -64,11 +64,35 @@ button {
   border-radius: 5px;
 }
 
+#delButton {
+  background-color: #ff6666;
+}
+
+.btn-danger {
+  width: 100px;
+  height: 30px;
+  background-image: url("delButton.png");
+  padding: 20px;
+}
+
+.btn-danger img {
+  padding: 10px;
+}
+
 #doneEdit {
   background-color: #B7AED1;
   
 }
 
+.edit-row {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-bottom: solid 1px black;
+}
+
+.edit-tab {
+  padding: 10px;
+}
 
 
 .center {
