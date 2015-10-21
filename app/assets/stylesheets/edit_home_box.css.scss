@@ -1,0 +1,77 @@
+
+.box {
+      display: block;
+      float: left;
+      position: relative;
+      width: 250px;
+      height: 200px;
+      border-radius: 8px;
+      margin: 10px;
+      background-color: gray;
+    
+      overflow: hidden;
+
+      border: 2px solid black;
+ 
+    }
+    
+.box-inner {
+  padding: 1px;
+}
+
+.box-inner .box-pic {
+  position: relative;
+
+}
+
+.box-inner .box-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 0px;
+  padding: 5px;
+  color: #fff;
+  background-color: #000;
+
+
+}
+  
+.options {
+  padding: 5px;
+  height: 50px;
+  width: 100%;
+  background-color: #EAE7EE;
+}
+
+.ops-area {
+  bottom: 10px;
+  padding: 5px;
+  
+}
+
+
+
+button {
+  display: inline-block;
+  position: relative;
+  bottom: 2px;
+  border: solid 1px #C1BAD7;
+}
+
+#add, #delete {
+  background-color: #988cbd;
+  border-radius: 5px;
+}
+
+#doneEdit {
+  background-color: #B7AED1;
+  
+}
+
+
+
+.center {
+  text-align: center;
+}
+
