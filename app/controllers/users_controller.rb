@@ -27,6 +27,10 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
   
+  def edit
+    @tabs = current_user.tabs
+  end
+  
   private
    
     def user_params

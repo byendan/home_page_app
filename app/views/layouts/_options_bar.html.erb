@@ -7,8 +7,8 @@
 				
 			</button>
 		
-		<button class="ops-btns" id="delete">
-			<%= image_tag "deleteButton.png", size: "30x30", class: "ops-img" %>
+		<button class="ops-btns" id="delete"  onclick="location.href='<%= edit_user_path current_user %>'">
+			<%= image_tag "editButton.png", size: "30x30", class: "ops-img" %>
 		</button>
 	</div>
 	

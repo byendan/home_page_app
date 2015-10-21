@@ -17,6 +17,8 @@ class TabsController < ApplicationController
     redirect_to root_url
   end
   
+  
+  
   private
   
     def tab_params
