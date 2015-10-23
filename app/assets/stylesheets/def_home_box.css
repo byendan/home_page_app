@@ -19,8 +19,10 @@
   padding: 1px;
 }
 
-.box-inner .box-pic {
+.box-inner .box-pic img{
 	position: relative;
+	display: block;
+
 
 }
 
