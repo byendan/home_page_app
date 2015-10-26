@@ -29,10 +29,6 @@ class TabsController < ApplicationController
     end
   end
   
-  def get_image_size
-    image_size = FastImage.size(current_user.tabs.find_by(id: params[:id]).picture)
-  end
-  
   
   private
   

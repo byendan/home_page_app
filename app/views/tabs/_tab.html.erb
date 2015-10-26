@@ -6,8 +6,7 @@
 		<div class="box" >
 			<div class="box-inner">
 				<div class="box-pic center">
-					
-					<%= image_tag tab.picture.url if tab.picture? %>
+					<%= image_tag tab.picture.url, class: "tab_pic" if tab.picture? %>
 				</div>
 				<div class="box-title center">
 					<%= tab.name %>
@@ -18,5 +17,5 @@
 
 <% end %>
 	
-	
+
 
