@@ -7,6 +7,6 @@ class CreateTabs < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :tabs, [:user_id, :created_at]
+    add_index :tabs, [:sheet_id, :created_at]
   end
 end
