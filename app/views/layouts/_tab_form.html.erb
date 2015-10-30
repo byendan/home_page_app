@@ -1,3 +1,4 @@
+<% unless @sheets.empty? %>
 <%= form_for(@tab, html: {multipart: true }) do |f| %>
 	
 	
@@ -18,6 +19,7 @@
 	<%= f.submit "Add Link", class: "btn btn-primary" %>
 	
 <% end %> 
+<% end %>
 
 <script type="text/javascript">
   $('#micropost_picture').bind('change', function() {

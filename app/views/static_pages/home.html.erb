@@ -1,11 +1,14 @@
 <%= stylesheet_link_tag "def_home_box" %>
 <% if logged_in? %>
 <%= provide(:title, current_user.name + "'s links")%>
-	<%= render 'layouts/options_bar'%>
+	<!-- needs to be moved to each sheet
+		<%= render 'layouts/options_bar'%>
+	-->
 	
-	<% if current_user.tabs.any? %>
+	
+	<% unless @page_data.empty? %>
 		<div class="container">
-			<%= render current_user.tabs  %>
+			<%= render 'sheets/sheet_area'  %>
 		</div>
 	<% end %>
 

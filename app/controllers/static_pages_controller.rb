@@ -1,8 +1,17 @@
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
-      @tab = current_user.tabs.build if logged_in?
-      @tab_feed = current_user.feed
+      
+      @page_data = Hash.new
+      
+      @sheets = current_user.sheets.all
+      unless @sheets.empty?
+      @sheets.each do |s|
+        @page_data[s] = s.tabs.all
+        
+      end
+      end
+     
     end
     
   end

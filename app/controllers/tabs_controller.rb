@@ -3,7 +3,7 @@ class TabsController < ApplicationController
   before_action :correct_user,    only: :destroy
   
   def create
-    @tab = current_user.tabs.build(tab_params)
+    @tab = current_user.sheets.tabs.build(tab_params)
     if @tab.save
       redirect_to root_url
     else
@@ -19,11 +19,11 @@ class TabsController < ApplicationController
   end
   
   def edit
-    @tab = current_user.tabs.find_by(id: params[:id])
+    @tab = current_user.sheets.tabs.find_by(id: params[:id])
   end
   
   def update
-    @tab = current_user.tabs.find_by(id: params[:id])
+    @tab = current_user.sheets.tabs.find_by(id: params[:id])
     if @tab.update_attributes(tab_params)
       redirect_to edit_user_path current_user
     end
@@ -37,7 +37,7 @@ class TabsController < ApplicationController
     end
     
     def correct_user
-      @tab = current_user.tabs.find_by(id: params[:id])
+      @tab = current_user.sheets.tabs.find_by(id: params[:id])
       redirect_to root_url if @tab.nil?
     end
   
