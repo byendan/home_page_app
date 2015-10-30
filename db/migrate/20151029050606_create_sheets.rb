@@ -7,6 +7,8 @@ class CreateSheets < ActiveRecord::Migration
       t.string :tab_color
       t.string :tab_width
       t.string :tab_height
+      
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

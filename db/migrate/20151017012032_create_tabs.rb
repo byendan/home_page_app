@@ -3,7 +3,7 @@ class CreateTabs < ActiveRecord::Migration
     create_table :tabs do |t|
       t.text :address
       t.text :name
-      t.references :user, index: true, foreign_key: true
+      t.references :sheet, index: true, foreign_key: true
 
       t.timestamps null: false
     end

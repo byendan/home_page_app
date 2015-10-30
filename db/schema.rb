@@ -11,19 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017182417) do
+ActiveRecord::Schema.define(version: 20151029050606) do
+
+  create_table "sheets", force: :cascade do |t|
+    t.string   "name"
+    t.string   "background_color"
+    t.string   "tab_color"
+    t.string   "tab_width"
+    t.string   "tab_height"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "sheets", ["user_id", "created_at"], name: "index_sheets_on_user_id_and_created_at"
+  add_index "sheets", ["user_id"], name: "index_sheets_on_user_id"
 
   create_table "tabs", force: :cascade do |t|
     t.text     "address"
     t.text     "name"
-    t.integer  "user_id"
+    t.integer  "sheet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "picture"
   end
 
-  add_index "tabs", ["user_id", "created_at"], name: "index_tabs_on_user_id_and_created_at"
-  add_index "tabs", ["user_id"], name: "index_tabs_on_user_id"
+  add_index "tabs", ["sheet_id", "created_at"], name: "index_tabs_on_sheet_id_and_created_at"
+  add_index "tabs", ["sheet_id"], name: "index_tabs_on_sheet_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
