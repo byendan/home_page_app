@@ -1,16 +1,12 @@
 <%= stylesheet_link_tag "def_home_box" %>
 <% if logged_in? %>
 <%= provide(:title, current_user.name + "'s links")%>
-	<!-- needs to be moved to each sheet
-		<%= render 'layouts/options_bar'%>
-	-->
-	
-	
-	<% unless @page_data.empty? %>
+	 
+		
 		<div class="container">
 			<%= render 'sheets/sheet_area'  %>
 		</div>
-	<% end %>
+	
 
 
 <script type="text/javascript">

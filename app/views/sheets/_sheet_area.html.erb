@@ -12,11 +12,13 @@
   <ul class="nav nav-tabs" role="tablist">
   	<% if @page_data.any? %>
   	<% @page_data.each do |s, t| %>
-  		<li role="presentation"><a href="#<%= s.name %>" aria-controls="<%= s.name%> role="tab" data-toggle="tab"><%=s.name %></a></li>
+  		<li role="presentation" id="tabs"><a href="#<%= s.name %>" aria-controls=<%= s.name.gsub("%20", "") %> role="tab" data-toggle="tab"><%=s.name %></a></li>
   	<% end %>
   	<% end %>
-  	<li role="presentation"><a href="#add" aria-controls="add" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span></a></li>
+  	<li role="presentation" id="tabs"><a href="#add" id="tabs" aria-controls="add" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span></a></li>
   </ul>
+
+	<!-- <%= render 'layouts/options_bar'%> -->
 
   <!-- Tab panes 
   <div class="tab-content">
@@ -30,12 +32,19 @@
 	<div class="tab-content">
 		<% if @page_data.any?%>
 		<% @page_data.each do |s, t| %>
-			<div role="tabpanel" class="tab-pane" id="home">
-				<div class="container">
-					<%= render t %>
-				</div>
+			<div role="tabpanel" class="tab-pane" id="<%= s.name.gsub("%20", "") %>">
+				
+					<%= render @page_data[s] %>
+					These are some tabs
+				
 			</div>
 		<% end %>
 		<% end %>
-		<div role="tabpanel" class="tab-pane" id="add">Make a new sheet<!--  Render a sheet creation form  --></div>
+		<div role="tabpanel" class="tab-pane" id="add"><%= render :partial => 'sheets/sheet_form' %></div>
 	</div>
+	
+	<script type="text/javascript">
+	
+	$('#tabs a:first').tab('show'); // Select first tab
+	
+	</script>

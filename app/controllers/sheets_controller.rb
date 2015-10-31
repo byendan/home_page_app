@@ -11,6 +11,9 @@ class SheetsController < ApplicationController
     end
   end
   
+  def new
+    @sheet = Sheet.new
+  end
   
   
   private

@@ -1,0 +1,15 @@
+<div class="row sheet-area-form">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="sheet-area-form">
+
+<%= form_for(@sheet) do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name, class: 'form-control' %>
+	
+	<%= f.submit "Add New Tab", class: 'btn btn-primary form-control' %>
+
+
+<% end %>
+		</div>
+	</div>
+</div>

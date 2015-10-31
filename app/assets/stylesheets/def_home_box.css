@@ -52,6 +52,18 @@
 	
 }
 
+.tab-pane {
+	margin: 20px;
+	padding: 0px;
+	background-color: #D0CBE1;
+	
+}
+
+.sheet-area-form {
+	margin: 0px;
+	padding: 30px;
+	background-color: #D0CBE1;
+}
 
 
 button {
