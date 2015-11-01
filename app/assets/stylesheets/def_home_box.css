@@ -73,9 +73,10 @@ button {
 	border: solid 1px #C1BAD7;
 }
 
-#add, #delete {
-	background-color: #988cbd;
+#add-button, #delete-button {
+	background-color: #2CC262;
 	border-radius: 5px;
+	margin-top: 20px;
 }
 
 #doneEdit {

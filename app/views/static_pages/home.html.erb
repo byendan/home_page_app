@@ -4,9 +4,28 @@
 	 
 		
 		<div class="container">
-			<%= render 'sheets/sheet_area'  %>
+			
+				
+			
+			<div class="row">
+				<div class="col-md-1"> 
+					<button type="button" id="add-button" data-toggle="modal" data-toggle="tooltip" data-target="#newTabModal" data-placement="left" title="New Link">
+						<%= image_tag "newLink.png", size: "40x40", class: "ops-img" %>
+					</button>
+					
+					<button class="ops-btns" id="delete-button"  data-toggle="tooltip" data-placement="right" title="Edit Links" onclick="location.href='<%= edit_user_path current_user %>'">
+						<%= image_tag "editLink.png", size: "40x40", class: "ops-img" %>
+					</button>
+				</div>
+				
+				<div class="col-md-11">
+					<%= render 'sheets/sheet_area'  %>
+				</div>
+			</div>
+			
 		</div>
 	
+	<%= render 'layouts/newTabModal' %>
 
 
 <script type="text/javascript">
@@ -26,6 +45,7 @@
     		$(this).css("top", hit_diff.toString() + "px");
     		
     	});
+    	$('#tabSheet a:first').tab('show'); // Select first tab
 
     });
 </script>
