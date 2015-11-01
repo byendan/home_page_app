@@ -34,9 +34,18 @@
 		<% if @page_data.any?%>
 		<% @page_data.each do |s, t| %>
 			<div role="tabpanel" class="tab-pane" id='<%= s.name.gsub("%20", "").gsub(" ", "") %>' >
-				
-					<%= render @page_data[s] %>
-					These are some tabs
+				<div class="row tab-options-row">
+					<div class="col-md-4 col-md-offset-3">
+						<%= render 'layouts/options_bar'%>
+					</div>
+				</div>
+				<div class="row tabs-area">
+					<div class="col-md-12">
+						<%= render @page_data[s] %>
+						These are some tabs
+					</div>
+				</div>
+					
 				
 			</div>
 		<% end %>
