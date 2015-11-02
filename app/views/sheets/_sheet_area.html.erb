@@ -36,9 +36,12 @@
 				
 				<div class="row tabs-area">
 					<div class="col-md-12">
-						
-						<%= render t if t != nil %>
-						These are some tabs
+						<% unless s.tabs == nil %>
+						<% s.tabs.each do |tab| %>
+							<%= render tab if tab != nil %>
+							
+						<% end %>
+						<% end %>
 					</div>
 				</div>
 					
