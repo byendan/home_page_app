@@ -5,12 +5,12 @@
 <div class="container">
 	<% @page_data.each do |key, val| %>
 	<h2><%= key.name %></h2><hr>
-	<% unless val == nil %>
+	<% unless key.tabs == nil %>
 	
-	<% val.each do |aTab| %>
+	<% key.tabs.each do |aTab| %>
 	<div class="row edit-row">
 		<div class="col-md-4">
-			<%= render aTab  %>
+			<%= render aTab if aTab != nil %>
 		</div>
 		<div class="col-md-6 edit-tab">
 			<div class="col-md-3 edit-buttons-section">
