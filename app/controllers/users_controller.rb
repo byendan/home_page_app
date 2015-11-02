@@ -28,7 +28,8 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @tabs = current_user.tabs
+    @page_data = page_data
+    
   end
   
   private

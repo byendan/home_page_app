@@ -3,7 +3,7 @@ class TabsController < ApplicationController
   before_action :correct_user,    only: :destroy
   
   def create
-    @tab = current_user.sheets.tabs.build(tab_params)
+    @tab = current_user.sheets.tab.build(tab_params)
     if @tab.save
       redirect_to root_url
     else

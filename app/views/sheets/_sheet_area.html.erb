@@ -18,7 +18,6 @@
   	<li role="presentation" id="tabSheet"><a href='#add' aria-controls="add" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span></a></li>
   </ul>
 
-	<!-- <%= render 'layouts/options_bar'%> -->
 
   <!-- Tab panes 
   <div class="tab-content">
@@ -37,8 +36,8 @@
 				
 				<div class="row tabs-area">
 					<div class="col-md-12">
-						<!-- <%= render 'layouts/options_bar'%> -->
-						<%= render @page_data[s] %>
+						
+						<%= render t if t != nil %>
 						These are some tabs
 					</div>
 				</div>
