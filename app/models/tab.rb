@@ -2,7 +2,7 @@ class Tab < ActiveRecord::Base
   belongs_to :sheet
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
-  validates :user_id, presence: true
+  validates :sheet_id, presence: true
   validates :name, presence: true
   validates :address, presence: true
   validate :picture_size

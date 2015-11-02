@@ -33,7 +33,7 @@
 		<% @page_data.each do |s, t| %>
 			<div role="tabpanel" class="tab-pane" id='<%= s.name.gsub("%20", "").gsub(" ", "") %>' >
 
-				
+				<% set_active_sheet s if s != nil %>
 				<div class="row tabs-area">
 					<div class="col-md-12">
 						

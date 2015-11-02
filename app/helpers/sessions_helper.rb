@@ -1,8 +1,21 @@
 module SessionsHelper
   
+  
+  
   # Logs in the given user.
   def log_in(user)
     session[:user_id] = user.id
+    session[:active_sheet] = Sheet.new
+  end
+  
+  # Sets the active sheet
+  def set_active_sheet(new_sheet)
+    session[:active_sheet] = new_sheet.id
+  end
+  
+  # Returns active sheet
+  def active_sheet
+    return Sheet.find_by(id: session[:active_sheet])
   end
   
   # Remembers a user in a persistent session.
@@ -68,4 +81,9 @@ module SessionsHelper
   end
   
   
+  
+  
+  
+  
+
 end

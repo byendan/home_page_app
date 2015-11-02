@@ -3,11 +3,11 @@ class TabsController < ApplicationController
   before_action :correct_user,    only: :destroy
   
   def create
-    @tab = current_user.sheets.tab.build(tab_params)
+
+    @tab = active_sheet.tabs.build(tab_params)
     if @tab.save
       redirect_to root_url
     else
-      @feed_items = []
       render 'static_pages/home'
     end
   end
