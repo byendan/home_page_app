@@ -4,7 +4,14 @@
 <% unless @page_data.empty? %>
 <div class="container">
 	<% @page_data.each do |key, val| %>
-	<h2><%= key.name %></h2><hr>
+	<div class="row">
+		<div class="col-md-3">
+			<h2>Tab Name: <%= key.name %></h2>
+			<%= link_to "", key, method: :delete, class: "btn btn-danger" %>
+		</div>
+	
+	</div>
+	<hr>
 	<% unless key.tabs == nil %>
 	
 	<% key.tabs.each do |aTab| %>

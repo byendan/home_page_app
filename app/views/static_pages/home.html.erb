@@ -33,54 +33,54 @@
 		$.post("/sheet_change", {
 			selected_value : tab_sheet
 		}, function(data, status) {
+			$(".tab_pic").each(function() {
 			var title_height = $(".box-title").height();
 			var inner_height = $(".box").height() - (title_height + 9);
 			$(".box-inner").css("height", inner_height.toString() + "px");
 			$(".box-pic").css("height", inner_height.toString() + "px");
-			var box_width = $(".box").width();
-			$(".tab_pic").each(function() {
-
-				var pic_width = $(this).width();
-				var pic_height = $(this).height();
-				var wid_diff = (box_width - pic_width) / 2;
-				var hit_diff = ((inner_height - pic_height) / 2);
-				$(this).css("left", wid_diff.toString() + "px");
-				$(this).css("top", hit_diff.toString() + "px");
-
-			});
+			var box_width = $(".box-inner").width();
+			var pic_width = $(this).width();
+			var pic_height = $(this).height();
+			var wid_diff = ((box_width - pic_width) / 2);
+			var hit_diff = ((inner_height - pic_height) / 2);
+			//var hit_diff = 0;
+			$(this).css("left", wid_diff.toString() + "px");
+			$(this).css("top", hit_diff.toString() + "px");
 
 		});
+		});
 
+		// Update active tabe, and fix picture display
 		$('#tabSheet a').click(function(e) {
 			e.preventDefault()
 			$(this).tab('show')
 			var sheet = $(this).attr('id');
 			$.post("/sheet_change", {
 				selected_value : sheet
-			}, function(data, status) {
-
-				var title_height = $(".box-title").height();
-				var inner_height = $(".box").height() - (title_height + 9);
-				$(".box-inner").css("height", inner_height.toString() + "px");
-				$(".box-pic").css("height", inner_height.toString() + "px");
-				var box_width = $(".box").width();
-				$(".tab_pic").each(function() {
-
-					var pic_width = $(this).width();
-					var pic_height = $(this).height();
-					var wid_diff = (box_width - pic_width) / 2;
-					var hit_diff = ((inner_height - pic_height) / 2);
-					$(this).css("left", wid_diff.toString() + "px");
-					$(this).css("top", hit_diff.toString() + "px");
-
-				});
-
 			});
+			
+			$(".tab_pic").each(function() {
+			var title_height = $(".box-title").height();
+			var inner_height = $(".box").height() - (title_height + 9);
+			$(".box-inner").css("height", inner_height.toString() + "px");
+			$(".box-pic").css("height", inner_height.toString() + "px");
+			var box_width = $(".box-inner").width();
+			var pic_width = $(this).width();
+			var pic_height = $(this).height();
+			var wid_diff = ((box_width - pic_width) / 2);
+			var hit_diff = ((inner_height - pic_height) / 2);
+			//var hit_diff = 0;
+			$(this).css("left", wid_diff.toString() + "px");
+			$(this).css("top", hit_diff.toString() + "px");
+
+		});
 
 		});
 
 	}); 
 </script>
+
+
 
 <% else %>
 

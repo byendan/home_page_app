@@ -15,6 +15,11 @@ class SheetsController < ApplicationController
     @sheet = Sheet.new
   end
   
+  def destroy
+    @sheet.destroy
+    redirect_to edit_user_path current_user
+  end
+  
   
   private
   

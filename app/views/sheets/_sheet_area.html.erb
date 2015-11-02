@@ -1,55 +1,58 @@
- <!-- Nav tabs
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-  </ul>
- -->
-  
-  
-  <ul class="nav nav-tabs" role="tablist">
-  	<% if @page_data.any? %>
-  	<% @page_data.each do |s, t| %>
-  		<% @name_no_space = s.name.gsub("%20", "").gsub(" ", "") %>
-  		<li role="presentation" id="tabSheet"><a href='#<%= @name_no_space  %>' id="<%= s.id %>"  aria-controls='<%= @name_no_space %>' role="tab" data-toggle="tab"><%=s.name %></a></li>
-  	<% end %>
-  	<% end %>
-  	<li role="presentation" id="tabSheet"><a href='#add' aria-controls="add" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span></a></li>
-  </ul>
+<!-- Nav tabs
+<ul class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+</ul>
+-->
 
+<ul class="nav nav-tabs" role="tablist">
+	<% if @page_data.any? %>
+	<% @page_data.each do |s, t| %>
+	<% @name_no_space = s.name.gsub("%20", "").gsub(" ", "") %>
+	<li role="presentation" id="tabSheet">
+		<a href='#<%= @name_no_space  %>' id="<%= s.id %>"  aria-controls='<%= @name_no_space %>' role="tab" data-toggle="tab"><%= s.name %></a>
+	</li>
+	<% end %>
+	<% end %>
+	<li role="presentation" id="tabSheet">
+		<a href='#add' aria-controls="add" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span></a>
+	</li>
+</ul>
 
-  <!-- Tab panes 
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">...</div>
-    <div role="tabpanel" class="tab-pane" id="profile">...</div>
-    <div role="tabpanel" class="tab-pane" id="messages">...</div>
-    <div role="tabpanel" class="tab-pane" id="settings">...</div>
-  </div>
-  -->
-  
-	<div class="tab-content">
-		<% if @page_data.any?%>
-		<% @page_data.each do |s, t| %>
-			<div role="tabpanel" class="tab-pane" id='<%= s.name.gsub("%20", "").gsub(" ", "") %>' >
+<!-- Tab panes
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="home">...</div>
+<div role="tabpanel" class="tab-pane" id="profile">...</div>
+<div role="tabpanel" class="tab-pane" id="messages">...</div>
+<div role="tabpanel" class="tab-pane" id="settings">...</div>
+</div>
+-->
 
-				
-				<div class="row tabs-area">
-					<div class="col-md-12">
-						<% unless s.tabs == nil %>
-						<% s.tabs.each do |tab| %>
-							<%= render tab if tab != nil %>
-							
-						<% end %>
-						<% end %>
-					</div>
-				</div>
-					
-				
+<div class="tab-content">
+	<% if @page_data.any?%>
+	<% @page_data.each do |s, t| %>
+	<div role="tabpanel" class="tab-pane" id='<%= s.name.gsub("%20", "").gsub(" ", "") %>' >
+
+		<div class="row tabs-area">
+			<div class="col-md-12">
+				<% unless s.tabs == nil %>
+				<% s.tabs.each do |tab| %>
+				<%= render tab if tab != nil %>
+
+				<% end %>
+				<% end %>
 			</div>
-		<% end %>
-		<% end %>
-		<div role="tabpanel" class="tab-pane" id="add"><%= render 'sheets/sheet_form' %></div>
+		</div>
+
 	</div>
-	
-	
+	<% end %>
+	<% end %>
+	<div role="tabpanel" class="tab-pane" id="add">
+		<%= render 'sheets/sheet_form' %>
+	</div>
+</div>
+
+
+
