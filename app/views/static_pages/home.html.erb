@@ -1,65 +1,75 @@
 <%= stylesheet_link_tag "def_home_box" %>
 <% if logged_in? %>
 <%= provide(:title, current_user.name + "'s links")%>
-	 
-		
-		<div class="container">
-			<div class="row">
-				<div class="col-md-1"> 
-					<button type="button" id="add-button" data-toggle="modal" data-toggle="tooltip" data-target="#newTabModal" data-placement="left" title="New Link">
-						<%= image_tag "newLink.png", size: "40x40", class: "ops-img" %>
-					</button>
-					
-					<button class="ops-btns" id="delete-button"  data-toggle="tooltip" data-placement="right" title="Edit Links" onclick="location.href='<%= edit_user_path current_user %>'">
-						<%= image_tag "editLink.png", size: "40x40", class: "ops-img" %>
-					</button>
-				</div>
-				
-				<div class="col-md-11">
-					<%= render 'sheets/sheet_area'  %>
-				</div>
-			</div>
-			
-		</div>
-	
-	<%= render 'layouts/newTabModal' %>
 
+<div class="container">
+	<div class="row">
+		<div class="col-md-1">
+			<button type="button" id="add-button" data-toggle="modal" data-toggle="tooltip" data-target="#newTabModal" data-placement="left" title="New Link">
+				<%= image_tag "newLink.png", size: "40x40", class: "ops-img" %>
+			</button>
+
+			<button class="ops-btns" id="delete-button"  data-toggle="tooltip" data-placement="right" title="Edit Links" onclick="location.href='<%= edit_user_path current_user %>'">
+				<%= image_tag "editLink.png", size: "40x40", class: "ops-img" %>
+			</button>
+		</div>
+
+		<div class="col-md-11">
+			<%= render 'sheets/sheet_area'  %>
+		</div>
+	</div>
+
+</div>
+
+<%= render 'layouts/newTabModal' %>
 
 <script type="text/javascript">
-    $(window).ready(function(){
-    	var title_height = $(".box-title").height();
-   		var inner_height = $(".box").height() - (title_height + 9);
-    	$(".box-inner").css("height", inner_height.toString() + "px");
-    	$(".box-pic").css("height", inner_height.toString() + "px");
-    	var box_width = $(".box").width();
-    	$(".tab_pic").each(function() {
-    		
-    		var pic_width = $(this).width();
-    		var pic_height = $(this).height();
-    		var wid_diff = (box_width - pic_width) / 2;
-    		var hit_diff = ((inner_height - pic_height) / 2)  ;
-    		$(this).css("left", wid_diff.toString() + "px");
-    		$(this).css("top", hit_diff.toString() + "px");
-    		
-    	});
-    	$('#tabSheet a:first').tab('show'); // Select first tab
+	$(window).ready(function() {
+		var title_height = $(".box-title").height();
+		var inner_height = $(".box").height() - (title_height + 9);
+		$(".box-inner").css("height", inner_height.toString() + "px");
+		$(".box-pic").css("height", inner_height.toString() + "px");
+		var box_width = $(".box").width();
+		$(".tab_pic").each(function() {
 
-    });
+			var pic_width = $(this).width();
+			var pic_height = $(this).height();
+			var wid_diff = (box_width - pic_width) / 2;
+			var hit_diff = ((inner_height - pic_height) / 2);
+			$(this).css("left", wid_diff.toString() + "px");
+			$(this).css("top", hit_diff.toString() + "px");
+
+		});
+		
+		// Select first tab
+		var $first_tab = $('#tabSheet a:first');
+		$first_tab.tab('show');
+		var tab_sheet = $first_tab.attr('id');
+		$.post("/sheet_change", {selected_value : tab_sheet});
+		
+		$('#tabSheet a').click(function(e) {
+			e.preventDefault()
+			$(this).tab('show')
+			var sheet = $(this).attr('id');
+			$.post("/sheet_change", {selected_value : sheet});
+
+		});
+
+	}); 
 </script>
 
 <% else %>
 
-
 <script type="text/javascript">
-    $(window).load(function(){
-        $('#myModal').modal('show');
-    });
+	$(window).load(function() {
+		$('#myModal').modal('show');
+	}); 
 </script>
 
 <%= provide(:title, 'Home') %>
 <div class="container">
 	<%= render 'layouts/boxes' %>
-	
+
 	<%= render 'layouts/loginmod'%>
 </div>
 

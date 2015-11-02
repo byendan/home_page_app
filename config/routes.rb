@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get     'login'   =>  'sessions#new'
   post    'login'   =>  'sessions#create'
   delete  'logout'  =>  'sessions#destroy'
+  post    'sheet_change' => 'static_pages#sheet_change'
   resources :users
   resources :tabs
   resources :sheets

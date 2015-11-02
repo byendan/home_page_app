@@ -10,7 +10,7 @@ module SessionsHelper
   
   # Sets the active sheet
   def set_active_sheet(new_sheet)
-    session[:active_sheet] = new_sheet.id
+    session[:active_sheet] = new_sheet
   end
   
   # Returns active sheet

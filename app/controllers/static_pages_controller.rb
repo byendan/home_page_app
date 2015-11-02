@@ -9,6 +9,10 @@ class StaticPagesController < ApplicationController
   def about
   end
   
+  def sheet_change
+    set_active_sheet params[:selected_value].to_i
+    render :text => "success"
+  end
 
   
 end
