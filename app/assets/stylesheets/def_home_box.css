@@ -51,6 +51,11 @@
 	
 }
 
+.ops-img {
+	border-radius: 5px;
+	margin: 5px;
+}
+
 .tab-pane {
 	margin: 20px;
 	padding: 0px;
@@ -62,6 +67,7 @@
 	margin: 0px;
 	padding: 30px;
 	background-color: #D0CBE1;
+	border-radius: 3px;
 }
 
 

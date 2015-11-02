@@ -1,5 +1,6 @@
-<div class="row sheet-area-form">
+<div class="row">
 	<div class="col-md-6 col-md-offset-3">
+		<h1 style="text-align:center">New Sheet</h1>
 		<div class="sheet-area-form">
 
 <%= form_for(@sheet) do |f| %>
@@ -12,4 +13,16 @@
 <% end %>
 		</div>
 	</div>
+	
+	<div class="col-md-8 col-md-offset-2">
+		<div class="sheet-instructions">
+			<p style="text-align:center"><br /><br />To add links you must first create a tab.<br /> 
+				When adding links they will be added to the 
+				curently selected tab.<br />
+				* You cannot create a new link if this is the currently selected tab <br /><br /><br />
+				New tab button   <%= image_tag "newLink.png", size: "30x30", class: "ops-img" %>  <br />
+				Edit button <%= image_tag "editLink.png", size: "30x30", class: "ops-img" %> </p>
+		</div>
+	</div>
+	
 </div>
