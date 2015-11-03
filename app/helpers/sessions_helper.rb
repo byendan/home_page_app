@@ -18,6 +18,10 @@ module SessionsHelper
     return Sheet.find_by(id: session[:active_sheet])
   end
   
+  def any_sheets?
+    return current_user.sheets != nil
+  end
+  
   # Remembers a user in a persistent session.
   def remember(user)
     user.remember

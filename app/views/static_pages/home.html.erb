@@ -26,6 +26,7 @@
 <script type="text/javascript">
 	$(window).ready(function() {
 
+		<% if any_sheets? %>
 		// Select first tab
 		var $first_tab = $('#tabSheet a:first');
 		$first_tab.tab('show');
@@ -49,6 +50,8 @@
 
 		});
 		});
+		
+		<% end %>
 
 		// Update active tabe, and fix picture display
 		$('#tabSheet a').click(function(e) {
