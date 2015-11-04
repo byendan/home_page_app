@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "edit_home_box" %>
 <%= provide(:title, "Edit links")%>
 <%= render 'layouts/edit_options_bar'%>
-<% unless @page_data.empty? %>
+<% if @page_data != nil %>
 <div class="container">
 	<% @page_data.each do |key, val| %>
 	<div class="row">
