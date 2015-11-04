@@ -26,32 +26,17 @@
 <script type="text/javascript">
 	$(window).ready(function() {
 
-		<% if any_sheets? %>
+		
+
 		// Select first tab
 		var $first_tab = $('#tabSheet a:first');
 		$first_tab.tab('show');
 		var tab_sheet = $first_tab.attr('id');
 		$.post("/sheet_change", {
 			selected_value : tab_sheet
-		}, function(data, status) {
-			$(".tab_pic").each(function() {
-			var title_height = $(".box-title").height();
-			var inner_height = $(".box").height() - (title_height + 9);
-			$(".box-inner").css("height", inner_height.toString() + "px");
-			$(".box-pic").css("height", inner_height.toString() + "px");
-			var box_width = $(".box-inner").width();
-			var pic_width = $(this).width();
-			var pic_height = $(this).height();
-			var wid_diff = ((box_width - pic_width) / 2);
-			var hit_diff = ((inner_height - pic_height) / 2);
-			//var hit_diff = 0;
-			$(this).css("left", wid_diff.toString() + "px");
-			$(this).css("top", hit_diff.toString() + "px");
-
-		});
 		});
 		
-		<% end %>
+	
 
 		// Update active tabe, and fix picture display
 		$('#tabSheet a').click(function(e) {
@@ -64,6 +49,36 @@
 			
 			$(".tab_pic").each(function() {
 			var title_height = $(".box-title").height();
+			var inner_height = $(".box-inner").height();
+	
+			var box_width = $(".box-inner").width();
+			var pic_width = $(this).width();
+			var pic_height = $(this).height();
+			var wid_diff = ((box_width - pic_width) / 2);
+			var hit_diff = ((inner_height - pic_height) / 2);
+
+			//var hit_diff = 0;
+			$(this).css("left", wid_diff.toString() + "px");
+			$(this).css("top", hit_diff.toString() + "px");
+			
+			var pos = $(this).position();
+			if (pos.left < -50) {
+				var h_dif = ($('.box-inner').height() - $(this).height()) * 0.5;	
+				alert($('.box-inner').height() + " : " + $(this).height());		
+				var w_dif = ($('.box-pic').width() - $(this).width()) * 0.5;
+	
+				alert($('.box-inner').width());
+				$(this).css("left", (-w_dif).toString() + "px");
+				$(this).css("top", (h_dif).toString() + "px");
+			}
+
+		});
+
+		});
+		
+		
+		$(".tab_pic").each(function() {
+			var title_height = $(".box-title").height();
 			var inner_height = $(".box").height() - (title_height + 9);
 			$(".box-inner").css("height", inner_height.toString() + "px");
 			$(".box-pic").css("height", inner_height.toString() + "px");
@@ -75,8 +90,6 @@
 			//var hit_diff = 0;
 			$(this).css("left", wid_diff.toString() + "px");
 			$(this).css("top", hit_diff.toString() + "px");
-
-		});
 
 		});
 

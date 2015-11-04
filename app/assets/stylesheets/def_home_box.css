@@ -3,7 +3,7 @@
       display: block;
       float: left;
       position: relative;
-      width: 19%;
+      width: 225px;
       height: 200px;
       border-radius: 8px;
       margin: 10px;
@@ -17,6 +17,8 @@
     
 .box-inner {
   padding: 1px;
+  width: 224px;
+  height: 167px;
 }
 
 .box-inner .box-pic img{
@@ -101,40 +103,3 @@ button {
 	text-align: center;
 }
 
-@media only screen and (max-width : 480px) {
-      /* Smartphone view: 1 tile */
-      .box {
-        width: 95%;
-        height: 200px;
-      }
-      
-
-    }
-    @media only screen and (max-width : 650px) and (min-width : 481px) {
-      /* Tablet view: 2 tiles */
-      .box {
-        width:45%;
-        height: 150px;
-      }
-      
-
-      
-    }
-    @media only screen and (max-width : 1050px) and (min-width : 651px) {
-      /* Small desktop / ipad view: 3 tiles */
-      .box {
-        width: 29%;
-        height: 175px;
-      }
-      
- 
-    }
-    @media only screen and (max-width : 1290px) and (min-width : 1051px) {
-      /* Medium desktop: 4 tiles */
-      .box {
-        width: 23%;
-        height: 200px;
-      }
-      
-
-    }
