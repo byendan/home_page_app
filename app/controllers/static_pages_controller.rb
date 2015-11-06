@@ -20,14 +20,15 @@ class StaticPagesController < ApplicationController
   end
   
   def get_new_tab
-    @last_tab = active_sheet.tabs.order(:created_at).last
-    @tab_info = {
+    @last_tab = active_sheet.tabs.order(:created_at).first
+    
+      render :json => {
       name: @last_tab.name,
       address: @last_tab.address,
-      picture: @last_tab.picture
+      picture: @last_tab.picture.url
     }
-    render :text=> "success"
-    return @tab_info.to_json
+    
+     
   end
 
   

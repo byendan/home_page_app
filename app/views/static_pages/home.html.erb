@@ -26,8 +26,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		
-
 		// Select first tab
 		var $first_tab = $('#tabSheet a:first');
 		$first_tab.tab('show');
@@ -35,8 +33,6 @@
 		$.post("/sheet_change", {
 			selected_value : tab_sheet
 		});
-		
-	
 
 		// Update active tabe, and fix picture display
 		$('#tabSheet a').click(function(e) {
@@ -46,37 +42,36 @@
 			$.post("/sheet_change", {
 				selected_value : sheet
 			});
-			
+
 			$(".tab_pic").each(function() {
-			var title_height = $(".box-title").height();
-			var inner_height = $(".box-inner").height();
-	
-			var box_width = $(".box-inner").width();
-			var pic_width = $(this).width();
-			var pic_height = $(this).height();
-			var wid_diff = ((box_width - pic_width) / 2);
-			var hit_diff = ((inner_height - pic_height) / 2);
+				var title_height = $(".box-title").height();
+				var inner_height = $(".box-inner").height();
 
-			//var hit_diff = 0;
-			$(this).css("left", wid_diff.toString() + "px");
-			$(this).css("top", hit_diff.toString() + "px");
-			
-			var pos = $(this).position();
-			if (pos.left < -50) {
-				var h_dif = ($('.box-inner').height() - $(this).height()) * 0.5;	
-				alert($('.box-inner').height() + " : " + $(this).height());		
-				var w_dif = ($('.box-pic').width() - $(this).width()) * 0.5;
-	
-				alert($('.box-inner').width());
-				$(this).css("left", (-w_dif).toString() + "px");
-				$(this).css("top", (h_dif).toString() + "px");
-			}
+				var box_width = $(".box-inner").width();
+				var pic_width = $(this).width();
+				var pic_height = $(this).height();
+				var wid_diff = ((box_width - pic_width) / 2);
+				var hit_diff = ((inner_height - pic_height) / 2);
+
+				//var hit_diff = 0;
+				$(this).css("left", wid_diff.toString() + "px");
+				$(this).css("top", hit_diff.toString() + "px");
+
+				var pos = $(this).position();
+				if (pos.left < -50) {
+					var h_dif = ($('.box-inner').height() - $(this).height()) * 0.5;
+					alert($('.box-inner').height() + " : " + $(this).height());
+					var w_dif = ($('.box-pic').width() - $(this).width()) * 0.5;
+
+					alert($('.box-inner').width());
+					$(this).css("left", (-w_dif).toString() + "px");
+					$(this).css("top", (h_dif).toString() + "px");
+				}
+
+			});
 
 		});
 
-		});
-		
-		
 		$(".tab_pic").each(function() {
 			var title_height = $(".box-title").height();
 			var inner_height = $(".box").height() - (title_height + 9);
@@ -92,34 +87,44 @@
 			$(this).css("top", hit_diff.toString() + "px");
 
 		});
-		
+
 		$('form.new_tab').submit(function(e) {
 			e.preventDefault();
 			var valuesToSubmit = $(this).serialize();
 			$.ajax({
-				type: "POST",
-				url: $(this).attr("action"),
-				data: valuesToSubmit
-			}).success(function(){ 
+				type : "POST",
+				url : $(this).attr("action"),
+				data : valuesToSubmit
+			}).success(function() {
 				document.getElementById('new_tab').reset();
 				$('#newTabModal').modal('hide');
 				loadNewTab();
 			});
 		});
 
-	}); 
-	
+	});
+
 	function loadNewTab() {
-		$.getJSON('/get_new_tab', function(result) {
-			var name = result[0];
-			var address = result[1];
-			var picture = result[2];
-			
+
+		$.ajax({
+			url : '/get_new_tab',
+			type : "GET",
+			dataType : "json",
+			success : function(result, textStatus, xhr) {
+				var name = result['name'];
+				var address = result['address'];
+				var picture = result['picture'];
+				//alert(name + ":" + address + ":" + JSON.stringify(picture, null, 4));
+				var new_data = "<a target='_blank' href='" + address + "' style='display:block'><div class='box'>" + "<div class='box-inner' style='height:167px;width:225px'><div class='box-pic' style='height:167px;width:225px'>"; 
+				new_data += "<img class='tab_pic' src='" + picture + "'></img></div><div class='box-title center'>" + name + "</div></div></div></a>";
+				var $pane = $('div.active').child('div.row').child('div.sheet-col');
+				$pane.prepend(new_data);
+			}
 		});
+
+
 	}
 </script>
-
-
 
 <% else %>
 
