@@ -24,7 +24,7 @@
 <%= render 'layouts/newTabModal' %>
 
 <script type="text/javascript">
-	$(window).ready(function() {
+	$(document).ready(function() {
 
 		
 
@@ -92,8 +92,31 @@
 			$(this).css("top", hit_diff.toString() + "px");
 
 		});
+		
+		$('form.new_tab').submit(function(e) {
+			e.preventDefault();
+			var valuesToSubmit = $(this).serialize();
+			$.ajax({
+				type: "POST",
+				url: $(this).attr("action"),
+				data: valuesToSubmit
+			}).success(function(){ 
+				document.getElementById('new_tab').reset();
+				$('#newTabModal').modal('hide');
+				loadNewTab();
+			});
+		});
 
 	}); 
+	
+	function loadNewTab() {
+		$.getJSON('/get_new_tab', function(result) {
+			var name = result[0];
+			var address = result[1];
+			var picture = result[2];
+			
+		});
+	}
 </script>
 
 
