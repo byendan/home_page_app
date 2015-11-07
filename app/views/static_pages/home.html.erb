@@ -44,6 +44,9 @@
 			});
 
 			$(".tab_pic").each(function() {
+				//Gives time for picture to load
+				setTimeout(function(){ 
+    			}, 500);
 				var title_height = $(".box-title").height();
 				var inner_height = $(".box-inner").height();
 
@@ -60,10 +63,10 @@
 				var pos = $(this).position();
 				if (pos.left < -50) {
 					var h_dif = ($('.box-inner').height() - $(this).height()) * 0.5;
-					alert($('.box-inner').height() + " : " + $(this).height());
+				
 					var w_dif = ($('.box-pic').width() - $(this).width()) * 0.5;
 
-					alert($('.box-inner').width());
+				
 					$(this).css("left", (-w_dif).toString() + "px");
 					$(this).css("top", (h_dif).toString() + "px");
 				}
@@ -73,6 +76,9 @@
 		});
 
 		$(".tab_pic").each(function() {
+			//Gives time for picture to load
+			
+    			
 			var title_height = $(".box-title").height();
 			var inner_height = $(".box").height() - (title_height + 9);
 			$(".box-inner").css("height", inner_height.toString() + "px");
@@ -85,7 +91,7 @@
 			//var hit_diff = 0;
 			$(this).css("left", wid_diff.toString() + "px");
 			$(this).css("top", hit_diff.toString() + "px");
-
+			
 		});
 
 		$('form.new_tab').submit(function(e) {
@@ -111,14 +117,34 @@
 			type : "GET",
 			dataType : "json",
 			success : function(result, textStatus, xhr) {
+				// Sets up the data for appending
 				var name = result['name'];
 				var address = result['address'];
 				var picture = result['picture'];
-				//alert(name + ":" + address + ":" + JSON.stringify(picture, null, 4));
-				var new_data = "<a target='_blank' href='" + address + "' style='display:block'><div class='box'>" + "<div class='box-inner' style='height:167px;width:225px'><div class='box-pic' style='height:167px;width:225px'>"; 
+				// Sets up the html string for appending
+				var new_data = "<a target='_blank' href='" + address + "' style='display:block'><div class='box new_box_" + name + "'>" + "<div class='box-inner' style='height:167px;width:225px'><div class='box-pic' style='height:167px;width:225px'>"; 
 				new_data += "<img class='tab_pic' src='" + picture + "'></img></div><div class='box-title center'>" + name + "</div></div></div></a>";
-				var $pane = $('div.active').child('div.row').child('div.sheet-col');
+				// Finds then prepends the new tab
+				var $pane = $('div.active').find('.sheet-col');
 				$pane.prepend(new_data);
+				
+				
+				//Gives time for picture to load
+				setTimeout(function(){ 
+    			
+    			//JS for better picture placement
+				var $box = $('.new_box_' + name);
+				var $box_inner = $box.find('.box-inner');
+				var $pic = $box.find('.tab_pic');
+				var w_dif = ($box.width() - $pic.width()) * 0.5;
+				var h_dif = ($box_inner.height() - $pic.height()) * 0.5;
+				$pic.css("left", w_dif.toString() + "px");
+				$pic.css("top", h_dif.toString() + "px");
+    			
+    			}, 10);
+				
+			
+				
 			}
 		});
 
