@@ -44,9 +44,6 @@
 			});
 
 			$(".tab_pic").each(function() {
-				//Gives time for picture to load
-				setTimeout(function(){ 
-    			}, 500);
 				var title_height = $(".box-title").height();
 				var inner_height = $(".box-inner").height();
 
@@ -75,10 +72,10 @@
 
 		});
 
+		setTimeout(function(){ 
+
 		$(".tab_pic").each(function() {
-			//Gives time for picture to load
-			
-    			
+
 			var title_height = $(".box-title").height();
 			var inner_height = $(".box").height() - (title_height + 9);
 			$(".box-inner").css("height", inner_height.toString() + "px");
@@ -93,6 +90,8 @@
 			$(this).css("top", hit_diff.toString() + "px");
 			
 		});
+		
+		}, 100);
 
 		$('form.new_tab').submit(function(e) {
 			e.preventDefault();
