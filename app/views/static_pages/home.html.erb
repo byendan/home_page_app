@@ -2,6 +2,7 @@
 <% if logged_in? %>
 <%= provide(:title, current_user.name + "'s links")%>
 
+<% if get_screen_type == 0 %>
 <div class="container">
 	<div class="row">
 		<div class="col-md-1 ops-area">
@@ -13,13 +14,37 @@
 				<%= image_tag "editLink.png", size: "40x40", class: "ops-img" %>
 			</button>
 		</div>
-
 		<div class="col-md-11">
 			<%= render 'sheets/sheet_area'  %>
 		</div>
 	</div>
-
 </div>
+
+<% else %>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 mobile-ops">
+			
+			
+				<button type="button" id="mobile-add-button" data-toggle="modal" data-target="#newTabModal" title="New Link">
+					New Link
+				</button>
+		
+			
+				<button class="ops-btns" id="mobile-delete-button" title="Edit Links" onclick="location.href='<%= edit_user_path current_user %>'">
+					Edit Links
+				</button>
+		
+			
+		</div>
+		<div class="col-sm-12 mobile-sheetaria">
+			<%= render 'sheets/sheet_area'  %>
+		</div>
+	</div>
+</div>
+
+<% end %>
 
 <%= render 'layouts/newTabModal' %>
 

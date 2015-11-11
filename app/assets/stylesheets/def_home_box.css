@@ -81,6 +81,21 @@ button {
 	margin-top: 20px;
 }
 
+#mobile-add-button, #mobile-delete-button {
+	background-color: #2CC262;
+	border-radius: 5px;
+	margin: 0;
+	margin-top: 5px;
+	width: 49%;
+	height: 40px;
+	
+	font-size: 1.2em;
+ 	color: #fff;
+ 	text-transform: uppercase;
+ 	
+ 	
+}
+
 #doneEdit {
 	background-color: #B7AED1;
 	
