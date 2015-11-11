@@ -18,17 +18,7 @@
 
 		</div>
 		<%= render 'layouts/header' %>
-		<script type="text/javascript">
-			
-				var mobile = 0;	
-				if ($(window).width() < 556) {
-					mobile = 1;			
-				}
-				$.post("/set_screen_size", {
-				selected_value : mobile
-			});
-		</script>
-		
+		<% mobile_device? ? set_screen_type(1) : set_screen_type(0) %>
 		<%= yield %>
 	</body>
 </html>

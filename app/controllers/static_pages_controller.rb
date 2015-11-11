@@ -27,14 +27,5 @@ class StaticPagesController < ApplicationController
     }
 
   end
-
-  # Tells session if screen is probably mobile. Mobile if 1
-  def set_screen_size
-    set_session_size params[:selected_value].to_i
-    render :text => params[:selected_value]
-  end
-
- 
-
  
 end

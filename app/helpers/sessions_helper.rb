@@ -18,13 +18,13 @@ module SessionsHelper
     return Sheet.find_by(id: session[:active_sheet])
   end
   
-  # Sets screen size, mobile if true
-  def set_session_size(size_bool)
-    session[:mobile] = size_bool
+  # Type is 1 for mobile, 0 for desktop
+  def set_screen_type(type)
+    session[:mobile] = type
   end
   
   # Gets mobile size
-  def get_screen_size
+  def get_screen_type
     return session[:mobile]
   end
   
