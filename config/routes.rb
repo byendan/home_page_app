@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   delete  'logout'  =>  'sessions#destroy'
   post    'sheet_change' => 'static_pages#sheet_change'
   get     'get_new_tab'  => 'static_pages#get_new_tab'
+  post    'set_screen_size' => 'static_pages#set_screen_size'
   resources :users
   resources :tabs
   resources :sheets

@@ -2,9 +2,15 @@
 <% if logged_in? %>
 <%= provide(:title, current_user.name + "'s links")%>
 
+<% if get_screen_size == 1 %>
+			<script type="text/javascript">alert("Mobile size");</script>
+		<% elsif get_screen_size == 0 %>
+			<script type="text/javascript">alert("Not mobile size");</script>
+		<% end %>
+
 <div class="container">
 	<div class="row">
-		<div class="col-md-1">
+		<div class="col-md-1 ops-area">
 			<button type="button" id="add-button" data-toggle="modal" data-toggle="tooltip" data-target="#newTabModal" data-placement="left" title="New Link">
 				<%= image_tag "newLink.png", size: "40x40", class: "ops-img" %>
 			</button>

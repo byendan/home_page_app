@@ -47,11 +47,6 @@
 	background-color: #EAE7EE;
 }
 
-.ops-area {
-	bottom: 10px;
-	padding: 5px;
-	
-}
 
 .ops-img {
 	border-radius: 5px;
@@ -59,7 +54,7 @@
 }
 
 .tab-pane {
-	margin: 20px;
+	margin: 10px;
 	padding: 0px;
 	background-color: #F0F0F0;
 	
@@ -101,5 +96,24 @@ button {
 
 .center {
 	text-align: center;
+}
+
+
+@media screen and (max-width:555px) {
+	.box {
+      display: block;
+      float: left;
+      position: relative;
+      width: 113px;
+      height: 100px;
+      border-radius: 8px;
+      margin: 10px;
+      background-color: gray;
+	  
+      overflow: hidden;
+
+      border: 2px solid black;
+ 
+    }
 }
 
